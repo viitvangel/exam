@@ -35,7 +35,7 @@ namespace ApplicationA.BL.Services
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            consumer.Subscribe("Cars");
+            consumer.Subscribe("Autoparts");
             Task.Factory.StartNew(() =>
             {
                 while (!cancellationToken.IsCancellationRequested)
