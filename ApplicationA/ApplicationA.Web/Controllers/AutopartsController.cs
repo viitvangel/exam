@@ -26,10 +26,10 @@ namespace ApplicationA.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProduceCar([FromBody] Autopart car)
+        public async Task<IActionResult> ProduceAutoparts([FromBody] Autopart autopart)
         {
-            autopartService.Create(car);
-            await _rabbitMq.PublishAutopartAsync(car);
+            autopartService.Create(autopart);
+            await _rabbitMq.PublishAutopartAsync(autopart);
 
             return Ok();
         }
