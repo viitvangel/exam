@@ -31,11 +31,11 @@ namespace ApplicationA.BL.Services
             connection?.Dispose();
         }
 
-        public async Task PublishAutopartAsync(Autopart car)
+        public async Task PublishAutopartAsync(Autopart autopart)
         {
             await Task.Factory.StartNew(() =>
             {
-                var body = MessagePackSerializer.Serialize(car);
+                var body = MessagePackSerializer.Serialize(autopart);
                 model.BasicPublish("", "autopart_queue", body: body);
             });
         }
